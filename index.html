@@ -7,30 +7,18 @@
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
     <meta name="robots" content="noindex, nofollow" />
-    <title>Технические работы</title>
-    <link
-      rel="icon"
-      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='12' fill='none' stroke='%232F5BEA' stroke-width='4'/></svg>"
-    />
+    <meta name="color-scheme" content="light" />
+    <title>Технические работы — Румфлоу</title>
+    <link rel="icon" href="favicon.ico" />
     <style>
-      /* ==== Цвета ==== */
       :root {
-        --bg: #eef1f4;
-        --ink: #1c2633;
-        --muted: #5b6878;
-        --line: #cbd3dc;
-        --accent: #2f5bea;
-        --track: #dce2e9;
-      }
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --bg: #141a22;
-          --ink: #e7ecf2;
-          --muted: #95a1b0;
-          --line: #2a3441;
-          --accent: #7c9bff;
-          --track: #222b37;
-        }
+        --primary: #a596f7;
+        --background: oklch(1 0 0);
+        --foreground: oklch(0.145 0 0);
+        --muted: oklch(0.45 0 0);
+        --line: oklch(0.91 0 0);
+        --tint: #a596f72f;
+        --track: oklch(0.94 0.02 239.16);
       }
 
       * {
@@ -38,93 +26,70 @@
       }
       html,
       body {
-        height: 100%;
         margin: 0;
       }
       body {
-        background: var(--bg);
-        color: var(--ink);
+        background: var(--background);
+        color: var(--foreground);
         font-family:
           -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
           "Helvetica Neue", Arial, sans-serif;
         font-size: 17px;
-        line-height: 1.55;
+        line-height: 1.6;
         -webkit-font-smoothing: antialiased;
         padding: env(safe-area-inset-top, 0px) 0
           env(safe-area-inset-bottom, 0px);
       }
 
       .page {
-        min-height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        max-width: 640px;
+        max-width: 660px;
         margin: 0 auto;
-        padding: 48px 24px;
+        padding: 72px 24px 48px;
       }
 
       .brand {
-        font-size: 15px;
-        font-weight: 600;
-        letter-spacing: 0.01em;
-        color: var(--muted);
-        margin: 0 0 40px;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+        font-size: 17px;
+        letter-spacing: -0.01em;
+        margin: 0 0 48px;
       }
 
       h1 {
-        font-size: clamp(34px, 7vw, 56px);
-        line-height: 1.05;
+        font-size: clamp(24px, 5.5vw, 40px);
+        line-height: 1.08;
         font-weight: 700;
         letter-spacing: -0.025em;
         margin: 0 0 20px;
       }
 
       .lead {
+        margin: 0 0 40px;
         color: var(--muted);
-        max-width: 34em;
-        margin: 0;
-      }
-
-      .progress {
-        position: relative;
-        height: 3px;
-        margin: 36px 0 44px;
-        background: var(--track);
-        border-radius: 2px;
-        overflow: hidden;
-      }
-      .progress::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 28%;
-        background: var(--accent);
-        border-radius: 2px;
-        animation: sweep 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
-      }
-      @keyframes sweep {
-        from {
-          left: -28%;
-        }
-        to {
-          left: 100%;
-        }
-      }
-      @media (prefers-reduced-motion: reduce) {
-        .progress::after {
-          animation: none;
-          left: 0;
-          width: 100%;
-          opacity: 0.35;
-        }
       }
 
       h2 {
-        font-size: 15px;
-        font-weight: 600;
-        margin: 0 0 8px;
+        font-size: 19px;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        margin: 0 0 14px;
+      }
+
+      section {
+        margin: 0 0 40px;
+      }
+
+      .impact {
+        background: var(--tint);
+        border-left: 3px solid var(--primary);
+        border-radius: 6px;
+        padding: 22px 24px;
+      }
+
+      .apology {
+        color: var(--muted);
       }
 
       dl {
@@ -134,7 +99,7 @@
         display: grid;
         grid-template-columns: 7.5em 1fr;
         gap: 16px;
-        padding: 14px 0;
+        padding: 13px 0;
         border-top: 1px solid var(--line);
       }
       .row:last-child {
@@ -149,25 +114,19 @@
       }
 
       a {
-        color: var(--ink);
+        color: var(--foreground);
         text-decoration: underline;
-        text-decoration-color: var(--accent);
+        text-decoration-color: var(--primary);
         text-decoration-thickness: 2px;
-        text-underline-offset: 8px;
+        text-underline-offset: 6px;
       }
       a:hover {
-        color: var(--accent);
+        text-decoration-thickness: 3px;
       }
       a:focus-visible {
-        outline: 2px solid var(--accent);
+        outline: 2px solid var(--primary);
         outline-offset: 3px;
         border-radius: 2px;
-      }
-
-      .note {
-        color: var(--muted);
-        font-size: 15px;
-        margin: 20px 0 0;
       }
 
       footer {
@@ -177,38 +136,58 @@
       }
 
       @media (max-width: 420px) {
+        .page {
+          padding-top: 48px;
+        }
         .row {
           grid-template-columns: 1fr;
           gap: 2px;
+        }
+        .impact {
+          padding: 18px 18px;
         }
       }
     </style>
   </head>
   <body>
     <main class="page">
-      <p class="brand" id="brand">RINT Group</p>
+      <p class="brand"><img src="./logo.svg" alt="Румфлоу" height="36" /></p>
 
-      <h1>Сервис временно недоступен</h1>
+      <h1>Ведутся технические работы</h1>
       <p class="lead">
-        Мы проводим технические работы и восстановим доступ в&nbsp;ближайшее
-        время. Если у вас есть вопрос — свяжитесь с&nbsp;нами любым удобным
-        способом.
+        В ночь на 8 октября 2026 года произошёл инцидент в дата-центре Яндекса,
+        где была размещена часть инфраструктуры Румфлоу. В результате атаки БПЛА
+        в дата-центре произошёл пожар, из-за чего его работа была полностью
+        остановлена.
       </p>
 
-      <div class="progress" role="presentation"></div>
+      <section class="impact" aria-labelledby="impact-title">
+        Сайт и мобильное приложение могут быть временно недоступны или работать
+        с перебоями
+      </section>
+
+      <section>
+        <p class="apology">
+          Приносим извинения за доставленные неудобства. Наша команда делает всё
+          возможное для скорейшего восстановления полной работоспособности всех
+          сервисов.
+        </p>
+      </section>
 
       <section aria-labelledby="contacts-title">
         <h2 id="contacts-title">Связаться с нами</h2>
-        <dl id="contacts">
-          <div class="row" data-key="phone">
+        <dl>
+          <div class="row">
             <dt>Телефон</dt>
             <dd><a href="tel:+74959759790">+7 (495) 975-97-90</a></dd>
           </div>
-          <div class="row" data-key="email">
+          <div class="row">
             <dt>Почта</dt>
-            <dd><a href="mailto:help@nfckey.tech">help@nfckey.tech</a></dd>
+            <dd>
+              <a href="mailto:help@roomflow.ru">help@roomflow.ru</a>
+            </dd>
           </div>
-          <div class="row" data-key="telegram">
+          <div class="row">
             <dt>Telegram</dt>
             <dd>
               <a href="https://t.me/rint_group" target="_blank" rel="noopener"
@@ -216,7 +195,7 @@
               >
             </dd>
           </div>
-          <div class="row" data-key="max">
+          <div class="row">
             <dt>Max</dt>
             <dd>
               <a
@@ -228,74 +207,9 @@
             </dd>
           </div>
         </dl>
-        <p class="note">
-          Страница обновится, как только сервис снова станет доступен.
-        </p>
       </section>
 
-      <footer>
-        © <span id="year">2026</span> <span id="footer-brand">RINT Group</span>
-      </footer>
+      <footer>© ООО «Румфлоу», 2026</footer>
     </main>
-
-    <script>
-      const DEFAULT = {
-        name: "RINT Group",
-        phone: "+7 (495) 975-97-90",
-        email: "help@nfckey.tech",
-        telegram: "rint_group",
-        max: "Перейти >",
-      };
-
-      const SITES = {
-        roomflow: { name: "Румфлоу", email: "help@roomflow.ru" },
-        nksecure: { name: "NKSecure", email: "help@nfckey.tech" },
-        indoor: { name: "Indoor" },
-        telier: { name: "Telier" },
-      };
-
-      /* ===== Логика, менять не требуется ===== */
-      (function () {
-        const host = location.hostname.toLowerCase();
-        const key = Object.keys(SITES).find((k) => host.includes(k));
-        const cfg = Object.assign({}, DEFAULT, key ? SITES[key] : {});
-
-        document.getElementById("brand").textContent = cfg.name;
-        document.getElementById("footer-brand").textContent = cfg.name;
-        document.getElementById("year").textContent = new Date().getFullYear();
-        document.title = "Технические работы — " + cfg.name;
-
-        const links = {
-          phone: (v) => ["tel:" + v.replace(/[^\d+]/g, ""), v],
-          email: (v) => ["mailto:" + v, v],
-          telegram: (v) => [
-            "https://t.me/" + v.replace(/^@/, ""),
-            "@" + v.replace(/^@/, ""),
-          ],
-        };
-
-        document.querySelectorAll("#contacts .row").forEach((row) => {
-          const k = row.dataset.key;
-          const v = (cfg[k] || "").trim();
-          if (!v) {
-            row.remove();
-            return;
-          }
-          const [href, text] = links[k](v);
-          const a = row.querySelector("a");
-          a.href = href;
-          a.textContent = text;
-        });
-
-        setInterval(() => {
-          fetch(location.href, { cache: "no-store" })
-            .then((r) => (r.ok ? r.text() : ""))
-            .then((t) => {
-              if (t && !t.includes('id="contacts-title"')) location.reload();
-            })
-            .catch(() => {});
-        }, 60000);
-      })();
-    </script>
   </body>
 </html>
